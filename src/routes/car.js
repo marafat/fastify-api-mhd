@@ -1,8 +1,8 @@
 const CarController = require('../controllers/CarController');
-const CarRepository = require('../repositories/CarRepository');
+// const CarRepository = require('../repositories/CarRepository');
 
-const carRepository = new CarRepository();
-const carController = new CarController(carRepository);
+// const carRepository = new CarRepository();
+const carController = new CarController();
 
 const routes = [
     {
