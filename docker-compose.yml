@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+
+  mongo:
+    image: mongo:4.0.1-xenial
+    ports:
+      - "27017:27017"
+    volumes:
+      - /tmp/fastify-api-mhd/:/data/db
