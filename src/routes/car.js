@@ -33,4 +33,10 @@ const routes = [
     }
 ];
 
-module.exports = routes;
+module.exports = function (fastify, opts, next) {
+    routes.forEach((route) => {
+        fastify.route(route);
+    });
+
+    next();
+};

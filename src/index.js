@@ -12,22 +12,14 @@ const connectDB = async (fastify, mongoose) => {
     }
 };
 
-const configRoutes = (fastify, ...otherRoutes) => {
-    fastify.get('/', async (request, reply) => {
-        return { hello: 'world' }
-    });
-
-    otherRoutes.forEach((routes) => {
-        routes.forEach((route) => {
-            fastify.route(route);
-            fastify.log.info(`Adding route: ${JSON.stringify(route)}`);
-        });
-    });
+const registerPlugins = (fastify, ...plugins) => {
+  plugins.forEach((plugin) => fastify.register(plugin))
 };
 
 const startServer = async (fastify) => {
     try {
         await fastify.listen(3210);
+        console.log(fastify.printRoutes());
     } catch (e) {
         fastify.log.error(e);
         process.exit(1)
@@ -36,7 +28,7 @@ const startServer = async (fastify) => {
 
 (async function (fastify, mongoose){
 
-    configRoutes(fastify, carRoutes);
+    registerPlugins(fastify, carRoutes);
     await connectDB(fastify, mongoose);
     await startServer(fastify);
 
