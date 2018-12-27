@@ -1,6 +1,8 @@
 const fastify = require('fastify')({ logger: true });
+const swaggerPlugin = require('fastify-swagger');
 const mongoose = require('mongoose');
 const carRoutes = require('./routes/car');
+const swagger = require('../config/swagger');
 
 // connect to db
 const connectDB = async (fastify, mongoose) => {
@@ -27,7 +29,7 @@ const startServer = async (fastify) => {
 };
 
 (async function (fastify, mongoose){
-
+  fastify.register(swaggerPlugin, swagger.options);
   registerPlugins(fastify, carRoutes);
   await connectDB(fastify, mongoose);
   await startServer(fastify);
