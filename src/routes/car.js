@@ -1,4 +1,5 @@
 const CarController = require('../controllers/CarController');
+const carScheme = require('../schema/car');
 // const CarRepository = require('../repositories/CarRepository');
 
 // const carRepository = new CarRepository();
@@ -19,7 +20,9 @@ const routes = [
     method: 'POST',
     url: '/api/cars',
     handler: carController.addCar,
-    // schema: documentation.addCarSchema
+    schema: {
+      body: 'car#'
+    }
   },
   {
     method: 'PUT',
@@ -34,6 +37,7 @@ const routes = [
 ];
 
 module.exports = function (fastify, opts, next) {
+  fastify.addSchema(carScheme);
   routes.forEach((route) => {
     fastify.route(route);
   });

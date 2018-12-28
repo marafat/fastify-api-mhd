@@ -1,0 +1,28 @@
+{
+  "$id": "car",
+  "title": "Car",
+  "description": "A car in the garage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer",
+      "description": "price in cents",
+      "exclusiveMinimum": 0
+    },
+    "age": {
+      "type": "integer"
+    },
+    "services": {
+      "type": "object",
+      "description": "A map obj listing services dates keyed with service location",
+      "minProperties": 1
+    }
+  },
+  "required": ["title", "brand", "age"]
+}
