@@ -20,7 +20,7 @@ class CarRepository {
   }
 
   delete(id) {
-    return Car.findByIdAndRemove(id);
+    return Car.findByIdAndDelete(id);
   }
 }
 

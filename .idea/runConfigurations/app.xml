@@ -1,5 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="app" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="./node_modules/.bin/nodemon" path-to-js-file="src/index.js" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="app" type="NodeJSConfigurationType" node-parameters="./node_modules/.bin/nodemon" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="PORT" value="3210" />
+      <env name="DEBUG" value="*" />
+    </envs>
     <method v="2" />
   </configuration>
 </component>

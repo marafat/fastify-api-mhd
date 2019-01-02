@@ -1,19 +1,21 @@
 {
-  "name": "fastify-api-mhd",
+  "name": "express-api-mhd",
   "version": "0.0.1",
-  "description": "Step-by-step followed from an article on using node fastify mongo and swagger to build an api. https://medium.freecodecamp.org/how-to-build-blazing-fast-rest-apis-with-node-js-mongodb-fastify-and-swagger-114e062db0c9",
-  "main": "src/index.js",
+  "description": "Modified from this article using express. https://medium.freecodecamp.org/how-to-build-blazing-fast-rest-apis-with-node-js-mongodb-fastify-and-swagger-114e062db0c9",
+  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "boom": "^7.3.0",
-    "fastify": "^1.13.3",
-    "mongoose": "^5.4.0"
+    "cookie-parser": "^1.4.3",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "fastify-swagger": "^0.16.2",
     "nodemon": "^1.18.9"
   },
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js ./src/index.js"
+    "start": "DEBUG=server PORT=3210 ./node_modules/nodemon/bin/nodemon.js ./index.js"
   }
 }

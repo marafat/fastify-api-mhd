@@ -10,50 +10,50 @@ class CarController {
   //     this._carRepository = carRepo;
   // }
 
-  async getCars(req, reply) {
+  async getCars(req, res) {
     try {
       const cars = await carRepository.getAll();
-      return cars
+      res.send(cars);
     } catch (e) {
       throw boom.boomify(e)
     }
   }
 
-  async getSingleCar(req, reply) {
+  async getSingleCar(req, res) {
     try {
       const id = req.params.id;
       const car = await carRepository.getById(id);
-      return car
+      res.send(car);
     } catch (e) {
       throw boom.boomify(e)
     }
   }
 
-  async addCar(req, reply) {
+  async addCar(req, res) {
     try {
-      const car = carRepository.add({ ...req.body });
-      return car;
+      const car = await carRepository.add({ ...req.body });
+      res.send(car);
     } catch (e) {
       throw boom.boomify(e)
     }
   }
 
-  async updateCar(req, reply) {
+  async updateCar(req, res) {
     try {
       const id = req.params.id;
       const { ...patch } = req.body;
       const updated = await carRepository.update(id, patch);
-      return updated;
+      res.send(updated);
     } catch (e) {
       throw boom.boomify(e);
     }
   }
 
-  async deleteCar(req, reply) {
+  async deleteCar(req, res) {
     try {
       const id = req.params.id;
       const deleted = await carRepository.delete(id);
-      return deleted;
+      res.send(deleted);
     } catch (e) {
       throw boom.boomify(e);
     }
